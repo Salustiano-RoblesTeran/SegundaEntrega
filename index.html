@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Ecommerce</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>Supermercado</h1>
+        </nav>
+    </header>
+    <div class="container">
+        
+        <div>
+            <ul id="milista" class="row list-group list-group-horizontal">
+                <!-- Aqui los productos -->
+            </ul>
+            <p></p>
+        </div>
+        
+        <div>
+            <h4>Tu carrito:</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                    </tr>
+                </thead>
+                <tbody id="tablabody">
+                    <!-- aqui tabla carrito -->
+                </tbody>
+            </table>
+            <button id="finalizar" class="btn btn-success">Finalizar compra</button>
+            <strong id = precioTotal>$0</strong>
+            <button id="borrar" class = " btn btn-danger">Borrar Carrito</button>
+        </div>
+    </div>
+    <!-- Mi script -->
+    <script src="productos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
