@@ -1,6 +1,6 @@
 let carrito;
 let total;
-
+// Chequeamos si hay informacion en el localStorage
 if(localStorage.getItem("carrito") != null || localStorage.getItem("total")) {
     carrito = JSON.parse(localStorage.getItem("carrito"));
     total = JSON.parse(localStorage.getItem("total"));
@@ -47,7 +47,15 @@ function renderizarProductos() {
 function agregarAlCarrito(productoNuevo) {
     carrito.push(productoNuevo);
     console.log(carrito);
-    alert(`producto: ${productoNuevo.nombre} agregado al carro!`);
+    Swal.fire({
+        title: 'Producto agregado!',
+        text: `Se agrego ${productoNuevo.nombre}`,
+        imageUrl: `${productoNuevo.foto}`,
+        imageWidth: 400,
+        imageHeight: 400,
+        imageAlt: 'Imagen de carrito',
+      })
+    // alert(`producto: ${productoNuevo.nombre} agregado al carro!`);
     document.getElementById("tablabody").innerHTML+=`
     <tr>
         <td>${productoNuevo.id}</td>
@@ -71,7 +79,12 @@ function agregarAlCarrito(productoNuevo) {
 let finalizar = document.getElementById("finalizar");
 
 finalizar.onclick = () => {
-    alert(`El total de tu carrito es: $${total}`);
+    Swal.fire(
+        'Gracias por tu compra!',
+        `El total es de ${total}`,
+        'success'
+      )
+    // alert(`El total de tu carrito es: $${total}`);
 }
 
 // Boton borrar carrito
@@ -82,7 +95,11 @@ borrar.onclick = () => {
     document.getElementById("tablabody").innerHTML = '';
     total = 0;
     precioTotal.textContent = `$${total}`;
-    alert("Se borro tu carrito");
+    Toastify ({
+        text: "Se borro el carrito.",
+        duration: 3000,
+    }).showToast();
+    // alert("Se borro tu carrito");
     localStorage.clear();
 }
 
